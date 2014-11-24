@@ -1,0 +1,347 @@
+{
+    "apiVersion": "1.0",
+    "swaggerVersion": "1.2",
+    "basePath": "http://[hostname/ip address]:[port]/SpringWithSwagger/rest",
+    "resourcePath": "/mwhs",
+    "apis": [
+        {
+            "path": "/mwhs",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "List warehouses",
+                    "notes": "Returns a list of warehouses",
+                    "type": "array",
+                    "items":{"$ref":"Warehouse"},
+                    "nickname": "listWarehouses",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "authorizations": {
+                    },
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "path": "/mwhs/{mwhId}/search",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Search elements",
+                    "notes": "Search for elements in a warehouse",
+                    "type": "SearchResponse",
+                    "nickname": "search",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "authorizations": {
+                    },
+                    "parameters": [
+                        {
+                            "name": "mwhId",
+                            "description": "warehouse id",
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path",
+                            "allowMultiple": false
+                        },
+                        {
+                            "name": "q",
+                            "description": "Query",
+                            "required": true,
+                            "type": "string",
+                            "paramType": "query",
+                            "allowMultiple": false,
+                            "defaultValue": "*"
+                        },
+                        {
+                            "name": "isDiagram",
+                            "description": "Diagram flag",
+                            "required": true,
+                            "type": "boolean",
+                            "paramType": "query",
+                            "allowMultiple": false,
+                            "defaultValue": "1"
+                        },
+                        {
+                            "name": "rows",
+                            "description": "Number of rows",
+                            "required": true,
+                            "type": "int",
+                            "paramType": "query",
+                            "allowMultiple": false,
+                            "defaultValue": "50"
+                        },
+                        {
+                            "name": "start",
+                            "description": "Offset",
+                            "required": true,
+                            "type": "int",
+                            "paramType": "query",
+                            "allowMultiple": false,
+                            "defaultValue": "0"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/mwhs/{mwhId}/dias/{diagramId}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Retrieve a SVG/PNG diagram",
+                    "notes": "Send header for svg or png",
+                    "type": "string",
+                    "nickname": "getDiagram",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "authorizations": {
+                    },
+                    "parameters": [
+                        {
+                            "name": "mwhId",
+                            "description": "warehouse id",
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path",
+                            "allowMultiple": false
+                        },
+                        {
+                            "name": "diagramId",
+                            "description": "Diagram id",
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path",
+                            "allowMultiple": false
+                        },
+                        {
+                            "name": "versionId",
+                            "description": "Version id",
+                            "required": true,
+                            "type": "string",
+                            "paramType": "query",
+                            "allowMultiple": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/mwhs/{mwhId}/elements/{elementId}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Retrieve info on an element",
+                    "notes": "",
+                    "type": "ElementInfo",
+                    "nickname": "getElementInfo",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "authorizations": {
+                    },
+                    "parameters": [
+                        {
+                            "name": "mwhId",
+                            "description": "warehouse id",
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path",
+                            "allowMultiple": false
+                        },
+                        {
+                            "name": "elementId",
+                            "description": "Element id",
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path",
+                            "allowMultiple": false
+                        },
+                        {
+                            "name": "versionId",
+                            "description": "Version id",
+                            "required": true,
+                            "type": "string",
+                            "paramType": "query",
+                            "allowMultiple": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "Warehouse": {
+            "id": "Warehouse",
+            "properties": {
+                "id": {
+                    "type": "int"
+                },
+                "accountId": {
+                    "type": "int"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
+        },
+        "ElementProperty": {
+            "id": "ElementProperty",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "Version": {
+            "id": "Version",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "bagId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "DateTime"
+                },
+                "unitId": {
+                    "type": "string"
+                },
+                "unitName": {
+                    "type": "string"
+                }
+            }
+        },
+        "ElementInfo": {
+            "id": "ElementInfo",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "elementId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "isDiagram": {
+                    "type": "boolean"
+                },
+                "properties": {
+                    "type": "boolean"
+                },
+                "versions": {
+                    "type":"array",
+                    "items":{"$ref":"Version"}
+                }
+            }
+        },
+        "SearchResponse": {
+            "id": "SearchResponse",
+            "properties": {
+                "numFound": {
+                    "type": "int"
+                },
+                "start": {
+                    "type": "int"
+                },
+                "results": {
+                    "type":"array",
+                    "items":{"$ref":"Element"}
+                }
+            }
+        },
+        "Element": {
+            "id": "Element",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name_de": {
+                    "type": "string"
+                },
+                "type_de": {
+                    "type": "string"
+                },
+                "type_en": {
+                    "type": "string"
+                },
+                "isDiagram": {
+                    "type": "boolean"
+                },
+                "occuresInDiagramNames": {
+                    "type": "array",
+                    "items":{"$ref":"string"}
+                },
+                "occuresInDiagramIds": {
+                    "type": "array",
+                    "items":{"$ref":"string"}
+                },
+                "createdAt": {
+                    "type": "DateTime"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "lastModifiedAt": {
+                    "type": "DateTime"
+                },
+                "lastModifiedBy": {
+                    "type": "string"
+                },
+                "checkInAt": {
+                    "type": "DateTime"
+                },
+                "checkInById": {
+                    "type": "string"
+                },
+                "unitId": {
+                    "type": "string"
+                },
+                "unitName": {
+                    "type": "string"
+                },
+                "versionId": {
+                    "type": "string"
+                },
+                "versionName": {
+                    "type": "string"
+                },
+                "modelingToolName": {
+                    "type": "string"
+                },
+                "changeStatus": {
+                    "type": "int"
+                },
+                "isNewestUnitVersion": {
+                    "type": "boolean"
+                },
+                "mwhBagId": {
+                    "type": "string"
+                },
+                "mwhElementId": {
+                    "type": "string"
+                },
+                "mwhId": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

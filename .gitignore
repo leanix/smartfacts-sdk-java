@@ -1,0 +1,10 @@
+*.class
+
+# Package Files #
+*.war
+*.ear
+
+*.timestamp
+/bin
+/target
+/samples/target/
