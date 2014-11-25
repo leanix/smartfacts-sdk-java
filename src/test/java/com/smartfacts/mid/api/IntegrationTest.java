@@ -24,10 +24,12 @@
 package com.smartfacts.mid.api;
 
 import com.smartfacts.mid.api.common.ApiException;
+import com.smartfacts.mid.api.models.SearchResponse;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import static org.fest.assertions.api.Assertions.assertThat;
 import org.junit.Test;
 
 /**
@@ -39,15 +41,16 @@ import org.junit.Test;
 public class IntegrationTest
 {
 
+    private SmartFactsApi api = new SmartFactsApi(
+            "http://mid.smartfacts.com:9200/api/v1",
+            System.getProperty("username"),
+            System.getProperty("password"),
+            System.getProperty("apikey")
+    );
+
     @Test
     public void downloadDiagram() throws ApiException, IOException
     {
-        SmartFactsApi api = new SmartFactsApi(
-                "http://mid.smartfacts.com:9200/api/v1",
-                System.getProperty("username"),
-                System.getProperty("password"),
-                System.getProperty("apikey")
-        );
 
         InputStream inputStream = api.getDiagram(
                 "5",
@@ -65,9 +68,23 @@ public class IntegrationTest
         {
             outputStream.write(bytes, 0, read);
         }
-        
+
         inputStream.close();
         outputStream.close();
-        
+
+    }
+
+    @Test
+    public void listWarehouses() throws ApiException, IOException
+    {
+        assertThat(api.listWarehouses()).isNotEmpty();
+    }
+    
+    @Test
+    public void search() throws ApiException, IOException
+    {
+        SearchResponse response = api.search("5", Boolean.TRUE, "*", 1, 0);
+        assertThat(response).isNotNull();
+        assertThat(response.getDocs()).isNotEmpty();
     }
 }

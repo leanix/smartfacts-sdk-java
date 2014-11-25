@@ -24,22 +24,21 @@
 package com.smartfacts.mid.api.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.joda.time.*;
 import java.util.*;
 public class Element
 {
 	private String id = null;
 	private String name_de = null;
-	private String type_de = null;
-	private String type_en = null;
+	private List<String> type_de = new ArrayList<String>();
+	private List<String> type_en = new ArrayList<String>();
 	private Boolean isDiagram = null;
 	private List<String> occuresInDiagramNames = new ArrayList<String>();
 	private List<String> occuresInDiagramIds = new ArrayList<String>();
-	private DateTime createdAt = null;
+	private String createdAt = null;
 	private String createdBy = null;
-	private DateTime lastModifiedAt = null;
+	private String lastModifiedAt = null;
 	private String lastModifiedBy = null;
-	private DateTime checkInAt = null;
+	private String checkInAt = null;
 	private String checkInById = null;
 	private String unitId = null;
 	private String unitName = null;
@@ -76,25 +75,25 @@ public class Element
 	}
 
 	@JsonProperty("type_de")
-	public String getType_de()
+	public List<String> getType_de()
 	{
 		return type_de;
 	}
 	
 	@JsonProperty("type_de")
-	public void setType_de(String type_de)
+	public void setType_de(List<String> type_de)
 	{
 		this.type_de = type_de;
 	}
 
 	@JsonProperty("type_en")
-	public String getType_en()
+	public List<String> getType_en()
 	{
 		return type_en;
 	}
 	
 	@JsonProperty("type_en")
-	public void setType_en(String type_en)
+	public void setType_en(List<String> type_en)
 	{
 		this.type_en = type_en;
 	}
@@ -136,13 +135,13 @@ public class Element
 	}
 
 	@JsonProperty("createdAt")
-	public DateTime getCreatedAt()
+	public String getCreatedAt()
 	{
 		return createdAt;
 	}
 	
 	@JsonProperty("createdAt")
-	public void setCreatedAt(DateTime createdAt)
+	public void setCreatedAt(String createdAt)
 	{
 		this.createdAt = createdAt;
 	}
@@ -160,13 +159,13 @@ public class Element
 	}
 
 	@JsonProperty("lastModifiedAt")
-	public DateTime getLastModifiedAt()
+	public String getLastModifiedAt()
 	{
 		return lastModifiedAt;
 	}
 	
 	@JsonProperty("lastModifiedAt")
-	public void setLastModifiedAt(DateTime lastModifiedAt)
+	public void setLastModifiedAt(String lastModifiedAt)
 	{
 		this.lastModifiedAt = lastModifiedAt;
 	}
@@ -184,13 +183,13 @@ public class Element
 	}
 
 	@JsonProperty("checkInAt")
-	public DateTime getCheckInAt()
+	public String getCheckInAt()
 	{
 		return checkInAt;
 	}
 	
 	@JsonProperty("checkInAt")
-	public void setCheckInAt(DateTime checkInAt)
+	public void setCheckInAt(String checkInAt)
 	{
 		this.checkInAt = checkInAt;
 	}

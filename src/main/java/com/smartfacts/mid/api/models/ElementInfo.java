@@ -25,6 +25,7 @@ package com.smartfacts.mid.api.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.*;
+import com.smartfacts.mid.api.models.ElementProperty;
 import com.smartfacts.mid.api.models.Version;
 public class ElementInfo
 {
@@ -33,7 +34,7 @@ public class ElementInfo
 	private String name = null;
 	private String type = null;
 	private Boolean isDiagram = null;
-	private Boolean properties = null;
+	private List<ElementProperty> properties = new ArrayList<ElementProperty>();
 	private List<Version> versions = new ArrayList<Version>();
 	@JsonProperty("id")
 	public String getId()
@@ -96,13 +97,13 @@ public class ElementInfo
 	}
 
 	@JsonProperty("properties")
-	public Boolean getProperties()
+	public List<ElementProperty> getProperties()
 	{
 		return properties;
 	}
 	
 	@JsonProperty("properties")
-	public void setProperties(Boolean properties)
+	public void setProperties(List<ElementProperty> properties)
 	{
 		this.properties = properties;
 	}

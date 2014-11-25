@@ -24,13 +24,12 @@
 package com.smartfacts.mid.api.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.joda.time.*;
 public class Version
 {
 	private String id = null;
 	private String bagId = null;
 	private String name = null;
-	private DateTime createdAt = null;
+	private String createdAt = null;
 	private String unitId = null;
 	private String unitName = null;
 	@JsonProperty("id")
@@ -70,13 +69,13 @@ public class Version
 	}
 
 	@JsonProperty("createdAt")
-	public DateTime getCreatedAt()
+	public String getCreatedAt()
 	{
 		return createdAt;
 	}
 	
 	@JsonProperty("createdAt")
-	public void setCreatedAt(DateTime createdAt)
+	public void setCreatedAt(String createdAt)
 	{
 		this.createdAt = createdAt;
 	}

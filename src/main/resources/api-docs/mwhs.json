@@ -202,6 +202,79 @@
                 }
             }
         },
+        "Link": {
+            "id": "Link",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "LinkElement"
+                },
+                "target": {
+                    "type": "LinkElement"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "linkType": {
+                    "type": "string"
+                }
+            }
+        },
+        "LinkElement": {
+            "id": "LinkElement",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "elementId": {
+                    "type": "string"
+                },
+                "bagId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "isDiagram": {
+                    "type": "boolean"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "unitId": {
+                    "type": "string"
+                },
+                "unitName": {
+                    "type": "string"
+                },
+                "versionId": {
+                    "type": "string"
+                },
+                "versionName": {
+                    "type": "string"
+                },
+                "versionImportedAt": {
+                    "type": "string"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedAt": {
+                    "type": "string"
+                }
+            }
+        },
         "Version": {
             "id": "Version",
             "properties": {
@@ -215,7 +288,7 @@
                     "type": "string"
                 },
                 "createdAt": {
-                    "type": "DateTime"
+                    "type": "string"
                 },
                 "unitId": {
                     "type": "string"
@@ -244,7 +317,8 @@
                     "type": "boolean"
                 },
                 "properties": {
-                    "type": "boolean"
+                    "type":"array",
+                    "items":{"$ref":"ElementProperty"}
                 },
                 "versions": {
                     "type":"array",
@@ -261,7 +335,7 @@
                 "start": {
                     "type": "int"
                 },
-                "results": {
+                "docs": {
                     "type":"array",
                     "items":{"$ref":"Element"}
                 }
@@ -277,10 +351,12 @@
                     "type": "string"
                 },
                 "type_de": {
-                    "type": "string"
+                    "type":"array",
+                    "items":{"$ref":"string"}
                 },
                 "type_en": {
-                    "type": "string"
+                    "type":"array",
+                    "items":{"$ref":"string"}
                 },
                 "isDiagram": {
                     "type": "boolean"
@@ -294,19 +370,19 @@
                     "items":{"$ref":"string"}
                 },
                 "createdAt": {
-                    "type": "DateTime"
+                    "type": "string"
                 },
                 "createdBy": {
                     "type": "string"
                 },
                 "lastModifiedAt": {
-                    "type": "DateTime"
+                    "type": "string"
                 },
                 "lastModifiedBy": {
                     "type": "string"
                 },
                 "checkInAt": {
-                    "type": "DateTime"
+                    "type": "string"
                 },
                 "checkInById": {
                     "type": "string"

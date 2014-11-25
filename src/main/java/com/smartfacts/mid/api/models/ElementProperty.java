@@ -24,57 +24,41 @@
 package com.smartfacts.mid.api.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.*;
-import com.smartfacts.mid.api.models.Element;
-public class SearchResponse
+public class ElementProperty
 {
-	private Integer numFound = null;
-	private Integer start = null;
-	private List<Element> docs = new ArrayList<Element>();
-	@JsonProperty("numFound")
-	public Integer getNumFound()
+	private String name = null;
+	private String value = null;
+	@JsonProperty("name")
+	public String getName()
 	{
-		return numFound;
+		return name;
 	}
 	
-	@JsonProperty("numFound")
-	public void setNumFound(Integer numFound)
+	@JsonProperty("name")
+	public void setName(String name)
 	{
-		this.numFound = numFound;
+		this.name = name;
 	}
 
-	@JsonProperty("start")
-	public Integer getStart()
+	@JsonProperty("value")
+	public String getValue()
 	{
-		return start;
+		return value;
 	}
 	
-	@JsonProperty("start")
-	public void setStart(Integer start)
+	@JsonProperty("value")
+	public void setValue(String value)
 	{
-		this.start = start;
-	}
-
-	@JsonProperty("docs")
-	public List<Element> getDocs()
-	{
-		return docs;
-	}
-	
-	@JsonProperty("docs")
-	public void setDocs(List<Element> docs)
-	{
-		this.docs = docs;
+		this.value = value;
 	}
 
 	@Override
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append("class SearchResponse {\n");
-		sb.append("  numFound: ").append(numFound).append("\n");
-		sb.append("  start: ").append(start).append("\n");
-		sb.append("  docs: ").append(docs).append("\n");
+		sb.append("class ElementProperty {\n");
+		sb.append("  name: ").append(name).append("\n");
+		sb.append("  value: ").append(value).append("\n");
 		sb.append("}\n");
 		return sb.toString();
 	}

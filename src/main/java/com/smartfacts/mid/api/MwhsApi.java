@@ -128,7 +128,6 @@ public class MwhsApi
 			}
 		}
 	}
-        
 	public String getDiagram (String mwhId, String diagramId, String versionId) throws ApiException
 	{
 		// create path and map variables
