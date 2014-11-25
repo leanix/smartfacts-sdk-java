@@ -29,13 +29,11 @@ import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 import com.sun.jersey.api.client.filter.LoggingFilter;
-import com.sun.jersey.core.util.MultivaluedMapImpl;
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.impl.MultiPartWriter;
 import java.io.InputStream;
 import java.util.Map;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.NewCookie;
 
 /**
@@ -82,7 +80,7 @@ public class StatefulApiClient extends ApiClient
             login();
         }
 
-        headerParams.put("Cookie", cookie.getValue());
+        headerParams.put("Cookie", cookie.toCookie().toString());
         return super.invokeAPI(path, method, queryParams, body, headerParams);
     }
 
