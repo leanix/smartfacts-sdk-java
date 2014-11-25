@@ -24,20 +24,17 @@
 package com.smartfacts.mid.api.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.*;
-import com.smartfacts.mid.api.models.ElementProperty;
-import com.smartfacts.mid.api.models.Version;
-import com.smartfacts.mid.api.models.DiagramOccurrence;
-public class ElementInfo
+public class DiagramOccurrence
 {
 	private String id = null;
 	private String elementId = null;
+	private String versionId = null;
 	private String name = null;
+	private String description = null;
 	private String type = null;
+	private Boolean isAttachment = null;
 	private Boolean isDiagram = null;
-	private List<ElementProperty> properties = new ArrayList<ElementProperty>();
-	private List<Version> versions = new ArrayList<Version>();
-	private List<DiagramOccurrence> diagramOccurrences = new ArrayList<DiagramOccurrence>();
+	private Boolean hasAttachmentPreview = null;
 	@JsonProperty("id")
 	public String getId()
 	{
@@ -62,6 +59,18 @@ public class ElementInfo
 		this.elementId = elementId;
 	}
 
+	@JsonProperty("versionId")
+	public String getVersionId()
+	{
+		return versionId;
+	}
+	
+	@JsonProperty("versionId")
+	public void setVersionId(String versionId)
+	{
+		this.versionId = versionId;
+	}
+
 	@JsonProperty("name")
 	public String getName()
 	{
@@ -72,6 +81,18 @@ public class ElementInfo
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+
+	@JsonProperty("description")
+	public String getDescription()
+	{
+		return description;
+	}
+	
+	@JsonProperty("description")
+	public void setDescription(String description)
+	{
+		this.description = description;
 	}
 
 	@JsonProperty("type")
@@ -86,6 +107,18 @@ public class ElementInfo
 		this.type = type;
 	}
 
+	@JsonProperty("isAttachment")
+	public Boolean getIsAttachment()
+	{
+		return isAttachment;
+	}
+	
+	@JsonProperty("isAttachment")
+	public void setIsAttachment(Boolean isAttachment)
+	{
+		this.isAttachment = isAttachment;
+	}
+
 	@JsonProperty("isDiagram")
 	public Boolean getIsDiagram()
 	{
@@ -98,55 +131,32 @@ public class ElementInfo
 		this.isDiagram = isDiagram;
 	}
 
-	@JsonProperty("properties")
-	public List<ElementProperty> getProperties()
+	@JsonProperty("hasAttachmentPreview")
+	public Boolean getHasAttachmentPreview()
 	{
-		return properties;
+		return hasAttachmentPreview;
 	}
 	
-	@JsonProperty("properties")
-	public void setProperties(List<ElementProperty> properties)
+	@JsonProperty("hasAttachmentPreview")
+	public void setHasAttachmentPreview(Boolean hasAttachmentPreview)
 	{
-		this.properties = properties;
-	}
-
-	@JsonProperty("versions")
-	public List<Version> getVersions()
-	{
-		return versions;
-	}
-	
-	@JsonProperty("versions")
-	public void setVersions(List<Version> versions)
-	{
-		this.versions = versions;
-	}
-
-	@JsonProperty("diagramOccurrences")
-	public List<DiagramOccurrence> getDiagramOccurrences()
-	{
-		return diagramOccurrences;
-	}
-	
-	@JsonProperty("diagramOccurrences")
-	public void setDiagramOccurrences(List<DiagramOccurrence> diagramOccurrences)
-	{
-		this.diagramOccurrences = diagramOccurrences;
+		this.hasAttachmentPreview = hasAttachmentPreview;
 	}
 
 	@Override
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append("class ElementInfo {\n");
+		sb.append("class DiagramOccurrence {\n");
 		sb.append("  id: ").append(id).append("\n");
 		sb.append("  elementId: ").append(elementId).append("\n");
+		sb.append("  versionId: ").append(versionId).append("\n");
 		sb.append("  name: ").append(name).append("\n");
+		sb.append("  description: ").append(description).append("\n");
 		sb.append("  type: ").append(type).append("\n");
+		sb.append("  isAttachment: ").append(isAttachment).append("\n");
 		sb.append("  isDiagram: ").append(isDiagram).append("\n");
-		sb.append("  properties: ").append(properties).append("\n");
-		sb.append("  versions: ").append(versions).append("\n");
-		sb.append("  diagramOccurrences: ").append(diagramOccurrences).append("\n");
+		sb.append("  hasAttachmentPreview: ").append(hasAttachmentPreview).append("\n");
 		sb.append("}\n");
 		return sb.toString();
 	}

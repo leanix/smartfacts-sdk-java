@@ -298,6 +298,38 @@
                 }
             }
         },
+        "DiagramOccurrence": {
+            "id": "ElementInfo",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "elementId": {
+                    "type": "string"
+                },
+                "versionId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "isAttachment": {
+                    "type": "boolean"
+                },
+                "isDiagram": {
+                    "type": "boolean"
+                },
+                "hasAttachmentPreview": {
+                    "type": "boolean"
+                }
+            }
+        },
         "ElementInfo": {
             "id": "ElementInfo",
             "properties": {
@@ -323,6 +355,10 @@
                 "versions": {
                     "type":"array",
                     "items":{"$ref":"Version"}
+                },
+                "diagramOccurrences": {
+                    "type":"array",
+                    "items":{"$ref":"DiagramOccurrence"}
                 }
             }
         },
