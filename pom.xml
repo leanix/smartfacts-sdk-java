@@ -296,15 +296,15 @@
 
     <properties>
         <gpg.keyname>developer@leanix.net</gpg.keyname>
-        <gpg.passphrase></gpg.passphrase>
-        <jersey-version>1.7</jersey-version>
+        <gpg.passphrase/>
+        <jersey-version>1.19.4</jersey-version>
         <jodatime.version>2.5</jodatime.version>
         <jackson-version>2.1.4</jackson-version>
         <junit-version>4.11</junit-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <slf4j-version>1.6.1</slf4j-version>
         <slf4j-simple-version>1.7.6</slf4j-simple-version>
-        <arguments />
+        <arguments/>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 </project>
