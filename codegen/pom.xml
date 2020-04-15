@@ -82,7 +82,7 @@
                                 <configuration>
                                     <target>
                                         <copy todir="../src">
-                                            <fileset dir="target/generated-sources/swagger/src" includes="**" /> 	
+                                            <fileset dir="target/generated-sources/swagger/src" includes="**"/> 	
                                         </copy>
                                     </target>
                                 </configuration>
@@ -151,7 +151,7 @@
         <swagger-codegen-version>2.0.13</swagger-codegen-version>
         <maven-antrun-plugin-version>1.7</maven-antrun-plugin-version>
         <slf4j-version>1.6.1</slf4j-version>
-        <slf4j-simple-version>1.7.6</slf4j-simple-version>
+        <slf4j-simple-version>1.7.30</slf4j-simple-version>
         <junit-version>4.11</junit-version>
         <template-dir-tests>${basedir}/src/main/resources/string-template</template-dir-tests>
         <target-dir-tests>${basedir}/../src/test/java/com/smartfacts/mid/api/test/standard/</target-dir-tests>
